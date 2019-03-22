@@ -1,0 +1,21 @@
+<div id="header">
+  <div id="logo">
+    <h1>Popular Movies</h1>
+  </div>
+</div>
+<div class="row">
+  <div  class="col-sm-4" *ngFor="let popular of popular_movies; let i = index">
+    <div *ngIf="i < 8">
+      <div class="card mt-3 mb-3">
+        <div class="card-header text-center">
+          {{ popular.release_date | date:'mediumDate' }}
+        </div>
+        <div class="card-body">
+          <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" alt="{{ popular.original_title }}" style="height: 460px">
+          <p class="text-center">{{ popular.original_title }}</p>
+          <a routerLink="/movie/{{ popular.id }}" href="#" class="btn btn-block btn-info">Movie Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

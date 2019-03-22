@@ -6,20 +6,34 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MovieComponent } from './movie/movie.component';
+
 
 import { MovieService } from './movie.service';
+import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieComponent } from './movie/movie.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'movie/:movieID', component: MovieComponent }
+
+ 
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MovieComponent
+  
+    UpcomingMoviesComponent,
+  
+    PopularMoviesComponent,
+  
+    MovieComponent,
+
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

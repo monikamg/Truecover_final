@@ -35,52 +35,19 @@
 
   <hr>
 
-  <div id="header">
-    <div id="logo">
-      <h1>Upcoming Movies</h1>
-    </div>
-  </div>
+  <section id="Upcoming Movies">
 
-  <div class="row">
-    <div  class="col-sm-4" *ngFor="let upcoming of upcoming_movies; let i = index">
-      <div *ngIf="i < 8">
-        <div class="card mt-3 mb-3">
-          <div class="card-header text-center">
-            {{ upcoming.release_date | date:'mediumDate' }}
-          </div>
-          <div class="card-body">
-            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}" style="height: 460px">
-            <p class="text-center">{{ upcoming.original_title }}</p>
-            <a routerLink="/movie/{{ upcoming.id }}" href="#" class="button">Movie Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+    <app-upcoming-movies> </app-upcoming-movies>
+
+  </section>
+
   <hr>
 
-  <div id="header">
-      <div id="logo">
-        <h1>Popular Movies</h1>
-      </div>
-    </div>
-  <div class="row">
-      <div  class="col-sm-4" *ngFor="let popular of popular_movies; let i = index">
-        <div *ngIf="i < 8">
-          <div class="card mt-3 mb-3">
-            <div class="card-header text-center">
-              {{ popular.release_date | date:'mediumDate' }}
-            </div>
-            <div class="card-body">
-              <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" alt="{{ popular.original_title }}" style="height: 460px">
-              <p class="text-center">{{ popular.original_title }}</p>
-              <a routerLink="/movie/{{ popular.id }}" href="#" class="button">Movie Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section id="Popular Movies">
+
+    <app-popular-movies> </app-popular-movies>
+
+ </section>
 
 </div>
 </div>
@@ -88,49 +55,10 @@
 <div class="right">
 
   <div *ngIf="selectedHero">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card mt-5 mb-5">
-          <div class="card-header">
-            {{ selectedHero.title }}
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-5">
-                <img src="https://image.tmdb.org/t/p/w500/{{selectedHero.poster_path }}" size="100" class="img-fluid" alt="{{selectedHero.title }}">
-              </div>
-              <div class="col-sm-7">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <strong>Release Date: </strong> {{ selectedHero.release_date | date:'dd-MM-yyyy' }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Popularity: </strong> {{ selectedHero.popularity }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Summary: </strong> {{ selectedHero.overview }}
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Adult: </strong> {{ selectedHero.adult}}
-                  </li>
-                  <li class="list-group-item">
-                      <strong>Original Language:  </strong> {{ selectedHero.original_language }}
-                    </li>
-                  <li class="list-group-item">
-                    <strong>Favourite Count: </strong>
-                   
-                      {{ selectedHero.favorite_count }}
-                    
-                  </li>
-                  
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><!-- /.card -->
-      </div>
-    </div>
-  </div>
+   <section id="Movie Details">
 
+    <app-movie-details  [selectedHero]='selectedHero'></app-movie-details>
+
+   </section>
 </div>
 </div>
